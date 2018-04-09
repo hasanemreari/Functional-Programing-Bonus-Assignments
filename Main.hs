@@ -63,6 +63,10 @@ convertRank c
   | c `elem` "qQ" = Queen
   | c `elem` "kK" = King
   |otherwise =  error "Rank is unknown"
+  
+convertCard :: Char-> Char -> Card
+convertCard c d = Card (convertSuit c) (convertRank d)
+
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
