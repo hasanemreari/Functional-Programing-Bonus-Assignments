@@ -40,6 +40,12 @@ sumCards x
                         []-> acc
                         x1:xs ->sumCardsIter (acc + (cardValue x1)) xs
 
+score :: [Card] -> Int ->Int
+score x goal
+  | sumCards x > goal && allSameColor x = ((sumCards x)-goal)`div`2
+  | sumCards x > goal = ((sumCards x)*3)-goal
+  |otherwise =  goal - (sumCards x)
+
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
