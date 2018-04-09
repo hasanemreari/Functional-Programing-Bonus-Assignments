@@ -46,6 +46,14 @@ score x goal
   | sumCards x > goal = ((sumCards x)*3)-goal
   |otherwise =  goal - (sumCards x)
 
+convertSuit :: Char -> Suit
+convertSuit c
+  | c `elem` "dD" = Diamonds
+  | c `elem` "cC" = Clubs
+  | c `elem` "hH" = Hearts
+  | c `elem` "sS" = Spades
+  |otherwise =  error "Suit is unknown"
+  
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
