@@ -19,7 +19,12 @@ cardValue (Card _ vRank) = case vRank of
                             Jack -> 10
                             Queen -> 10
                             King -> 10
-
+---------------------Remove function delete all x in array-------------------------
+removeCard :: Card -> [Card] -> [Card]
+removeCard x (y:ys) = if cardColor x == cardColor y && cardValue x == cardValue y
+  then removeCard x ys
+  else y : removeCard x ys
+ 
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
