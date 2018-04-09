@@ -72,15 +72,17 @@ readCards = do line <- getLine
                if line == "."
                  then return ()
                  else do readCards
+convertMove :: Char -> Char -> Char -> Move
+convertMove nM nS nR
+  | nM `elem` "dD" = Draw
+  | nM `elem` "rR" = Discard (convertCard nS nR)
+  | otherwise =  error "Move is unknown" Discard (convertCard nS nR)
 
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
 readMoves :: IO [String]
 readMoves = undefined
-
-readCards :: IO ()
-readCards = undefined
 
 main :: IO ()
 main = do putStrLn "Enter cards:"
