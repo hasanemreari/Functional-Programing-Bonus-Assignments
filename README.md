@@ -9,3 +9,7 @@ and 1.25 days at the same time.Calculated as 400 * 1.25 for the remaining days, 
 in the previous result is 71 weeks and 3 days.As a result, the number of weeks is not an integer value, 
 since there are extra days.However, the days of the week coincide with the same day every 35 years. 
 This shows that the likelihood of all days is equal for 385 years.But this is not the same for 400 days.
+
+Bonus Assignmet 2-
+
+I can't implement 7,8,14 question. I immplement 3rd question but it is removing all wanted cards. Other questions fully implemented. 
