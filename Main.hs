@@ -54,6 +54,15 @@ convertSuit c
   | c `elem` "sS" = Spades
   |otherwise =  error "Suit is unknown"
   
+convertRank :: Char -> Rank
+convertRank c
+  | isDigit c = (Num (digitToInt c))
+  | c `elem` "tT" = Num 10
+  | c `elem` "aA" = Ace
+  | c `elem` "jJ" = Jack
+  | c `elem` "qQ" = Queen
+  | c `elem` "kK" = King
+  |otherwise =  error "Rank is unknown"
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
