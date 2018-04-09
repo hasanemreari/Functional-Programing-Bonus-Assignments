@@ -31,6 +31,15 @@ allSameColor xs = case xs of
                     [_]-> True
                     x1:xs@(x2:_) ->cardColor x1 ==cardColor x2 && allSameColor xs
  
+sumCards :: [Card] -> Int
+sumCards x
+  |otherwise = sumCardsIter 0 x
+    where
+      sumCardsIter :: Int -> [Card] -> Int
+      sumCardsIter acc xs = case xs of
+                        []-> acc
+                        x1:xs ->sumCardsIter (acc + (cardValue x1)) xs
+
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
