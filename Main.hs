@@ -24,6 +24,12 @@ removeCard :: Card -> [Card] -> [Card]
 removeCard x (y:ys) = if cardColor x == cardColor y && cardValue x == cardValue y
   then removeCard x ys
   else y : removeCard x ys
+  
+allSameColor :: [Card] -> Bool
+allSameColor xs = case xs of
+                    []-> True
+                    [_]-> True
+                    x1:xs@(x2:_) ->cardColor x1 ==cardColor x2 && allSameColor xs
  
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
