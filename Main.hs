@@ -67,6 +67,12 @@ convertRank c
 convertCard :: Char-> Char -> Card
 convertCard c d = Card (convertSuit c) (convertRank d)
 
+readCards :: IO ()
+readCards = do line <- getLine
+               if line == "."
+                 then return ()
+                 else do readCards
+
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
