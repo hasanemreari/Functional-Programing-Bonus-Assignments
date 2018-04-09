@@ -6,6 +6,12 @@ data Rank = Num Int | Jack | Queen | King | Ace deriving Show
 data Card = Card { suit :: Suit, rank :: Rank } deriving Show
 data Move = Draw | Discard Card deriving Show
 
+cardColor :: Card -> Color
+cardColor (Card vSuit _) = case vSuit of
+                            Clubs -> Black
+                            Spades-> Black
+                            _ -> Red
+                            
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
