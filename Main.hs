@@ -12,6 +12,14 @@ cardColor (Card vSuit _) = case vSuit of
                             Spades-> Black
                             _ -> Red
                             
+cardValue :: Card -> Int
+cardValue (Card _ vRank) = case vRank of
+                            Num a -> a
+                            Ace -> 11
+                            Jack -> 10
+                            Queen -> 10
+                            King -> 10
+
 runGame :: ()-> [String] -> Int -> Int
 runGame = undefined
 
