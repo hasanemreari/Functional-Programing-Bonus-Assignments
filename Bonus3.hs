@@ -30,3 +30,8 @@ sentenceWordCharCount =  wordCharCounts . wordConcat
     --The function wordConcat is used to convert words in a array into a single word.
     wordConcat :: [String]-> String
     wordConcat = foldl1 (++)
+--The function dictCharCounts is used to convert given String array
+--to String and CharCount type array.
+dictCharCounts :: [String] -> [(String,[CharCount])]
+dictCharCounts [] = []
+dictCharCounts (x:xs) = (x,wordCharCounts x) : dictCharCounts xs
