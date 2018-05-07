@@ -35,3 +35,17 @@ sentenceWordCharCount =  wordCharCounts . wordConcat
 dictCharCounts :: [String] -> [(String,[CharCount])]
 dictCharCounts [] = []
 dictCharCounts (x:xs) = (x,wordCharCounts x) : dictCharCounts xs
+
+--The function dictWordsByCharCounts finds out whether it is or not in the array,
+--but it can not place the same ones in one array and the others in a different single array.
+dictWordsByCharCounts :: [(String,[CharCount])] -> [String]
+dictWordsByCharCounts (x:xs)
+  |elemCharCount (snd x) (snd (head xs)) = [fst x ++ fst (head xs)]
+  |otherwise = []
+    where
+      --The function elemCharCount find the every first array element in second
+      --array. If second array contain all element return true. One missing return false.
+      elemCharCount :: [CharCount] -> [CharCount] -> Bool
+      elemCharCount _ [] = True
+      elemCharCount [] _ = True
+      elemCharCount (a:as) q = (elem a q) && (elemCharCount as q)
