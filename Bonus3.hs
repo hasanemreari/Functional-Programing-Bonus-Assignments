@@ -23,3 +23,10 @@ wordCharCounts str = foo1 (nub $ lowercase str) (lowercase str)
     foo1 _ [] = []
     foo1 (x:xs) y = (x,countChar x y) : foo1 xs y
 
+--The function sentenceWordCharCount is used to convert string array to CharCount type array.
+sentenceWordCharCount :: [String]-> [CharCount]
+sentenceWordCharCount =  wordCharCounts . wordConcat
+  where
+    --The function wordConcat is used to convert words in a array into a single word.
+    wordConcat :: [String]-> String
+    wordConcat = foldl1 (++)
