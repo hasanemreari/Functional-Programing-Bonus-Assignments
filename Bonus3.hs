@@ -49,3 +49,10 @@ dictWordsByCharCounts (x:xs)
       elemCharCount _ [] = True
       elemCharCount [] _ = True
       elemCharCount (a:as) q = (elem a q) && (elemCharCount as q)
+
+
+--The function charCountsSubsets is used to return all combination of CharCount element.
+--But it only works for all those with one character
+charCountsSubsets:: [CharCount] -> [[CharCount]]
+charCountsSubsets [] = [[]]
+charCountsSubsets (x:xs) = (charCountsSubsets xs) ++ map (x:) (charCountsSubsets xs)
